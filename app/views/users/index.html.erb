@@ -6,4 +6,15 @@
 		<% @posts.each do |p| %>
 			<p><%= link_to "#{User.find(p.user_id).fname} #{User.find(p.user_id).lname}", user_path(p.user_id) %> :  <%= p.body %></p>
 		<% end %>
+		
+		<!-- 
+		A cleaner and more isolated way to handle this is as follows.
+		This accesses posts throug hte user association rather than from the users controller
+		so you can get rid of the @post variable on users#index
+		This should also probably be in the users#show view unless you are showing a list
+		of users and all their posts
+		-->
+		<% @user.posts.each do |post| %>
+			<%= link_to post.body, post_path(post) %>
+		<% end %>
 <% end %>
