@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
 	def index
-		@user = User.find(session[:user_id]) if session[:user_id]
+		@user = User.find(session[:user_id]) if session[:user_id] # a 'current_user' method and helper on the application_controller could set this up app wide
 		@users = User.all
-		@posts = Post.all
+		@posts = Post.all # this should really be handled through the posts_controller
 	end
 
 	def new
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@posts = Post.where(user_id: params[:id])
+		@posts = Post.where(user_id: params[:id]) # this should really be handled through the posts_controller
 	end
 
 	def edit
