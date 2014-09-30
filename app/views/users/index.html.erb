@@ -1,0 +1,9 @@
+<% if session[:user_id] %>
+	<h2>Welcome, <%= @user.fname %></h2>
+
+	<%= link_to 'Create a post', users_post_path %>
+
+		<% @posts.each do |p| %>
+			<p><%= link_to "#{User.find(p.user_id).fname} #{User.find(p.user_id).lname}", user_path(p.user_id) %> :  <%= p.body %></p>
+		<% end %>
+<% end %>

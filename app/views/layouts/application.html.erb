@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App9</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= link_to 'Home', users_path %>
+<%= link_to 'Sign Up', new_user_path %>
+	<% if session[:user_id]%>
+		<%= link_to('Sign Out', session_path(session[:user_id]), method: :delete) %>
+	<% else %>
+		<%= link_to 'Sign In', new_session_path %>
+	<% end %>
+	<h1>Feats by K</h1>
+
+	<%= yield %>
+
+
+</body>
+</html>

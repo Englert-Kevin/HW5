@@ -1,0 +1,13 @@
+<h2>Edit Post</h2>
+
+<%= form_for @post, url: post_path do |p| %>
+	<fieldset>
+		<div class="field">
+			<%= p.label :body %>
+			<%= p.text_field :body %>
+		</div>
+		<div class="actions">
+			<%= p.submit %>
+		</div>
+	</fieldset>
+<% end %>	

@@ -1,0 +1,12 @@
+
+<h2>User Profile</h2>
+
+	<p><%= @user.fname %> <%= @user.lname %></p>
+	<p><%= @user.email %></p>
+	<br>
+	<%= @user.bio %>
+	<br>
+	<% if @user.id == session[:user_id] %>
+	<p><%= link_to 'Edit Profile', edit_user_path(session[:user_id]) %></p>
+	<p><%= link_to 'Posts', user_posts_path(@user) %></p>
+	<% end %>
