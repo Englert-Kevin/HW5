@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :posts
   end
 
-  resource :post, only: :show
+  resource :posts, only: :show # this should be plural so it refers to the posts resouce (posts_controller)
 
   root 'users#index'
 
